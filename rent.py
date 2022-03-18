@@ -1,6 +1,6 @@
 import json
 from web3 import Web3
-#import RPi.GPIO as GPIO
+import RPi.GPIO as GPIO
 from time import sleep
 
 web_3=Web3(Web3.HTTPProvider("HTTP://127.0.0.1:7545"))
@@ -26,6 +26,14 @@ if day == "1":
     #send transaction
     pay_hash = web_3.eth.sendRawTransaction(signed_pay.rawTransaction)
     print("You rent 1 day")
+    GPIO.setwarnings(False)
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(18, GPIO.OUT)
+    while (True):    
+            
+            
+        GPIO.output(18, 1)
+            
 
 if day == "3":
     pay = {
@@ -42,6 +50,14 @@ if day == "3":
     #send transaction
     pay_hash = web_3.eth.sendRawTransaction(signed_pay.rawTransaction)
     print("You rent 3 day")
+    GPIO.setwarnings(False)
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(18, GPIO.OUT)
+    while (True):    
+            
+            
+        GPIO.output(18, 1)
+            
 if day == "7":
     pay = {
         'nonce': nonce,
@@ -57,3 +73,11 @@ if day == "7":
     #send transaction
     pay_hash = web_3.eth.sendRawTransaction(signed_pay.rawTransaction)
     print("You rent 7 day")
+    GPIO.setwarnings(False)
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(18, GPIO.OUT)
+    while (True):    
+            
+            
+        GPIO.output(18, 1)
+            
